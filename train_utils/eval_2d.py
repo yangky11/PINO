@@ -60,6 +60,7 @@ def eval_darcy(model,
 
 def eval_burgers(model,
                  dataloader,
+                 v,
                  config,
                  device,
                  use_tqdm=True):
@@ -84,7 +85,7 @@ def eval_burgers(model,
 
         data_loss = myloss(out, y)
 
-        loss_u, f_loss = PINO_loss(out, x[:, 0, :, 0])
+        loss_u, f_loss = PINO_loss(out, x[:, 0, :, 0], v)
         test_err.append(data_loss.item())
         f_err.append(f_loss.item())
 
