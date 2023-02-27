@@ -76,6 +76,12 @@ def eval_burgers(model,
     for x, y in pbar:
         x, y = x.to(device), y.to(device)
         out = model(x).reshape(y.shape)
+
+        # Only evaluate on t \in [0.9, 1]
+        steps = out.size(1)
+        out = out[:, steps * 9 // 10 :]
+        y = y[:, steps * 9 // 10 : ]
+
         data_loss = myloss(out, y)
 
         loss_u, f_loss = PINO_loss(out, x[:, 0, :, 0])
