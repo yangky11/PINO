@@ -117,8 +117,7 @@ def train_2d_operator(model,
 
 
 def train_2d_burger(model,
-                    train_loader,
-                    v,
+                    train_loader, v,
                     optimizer, scheduler,
                     config,
                     rank=0, log=False,

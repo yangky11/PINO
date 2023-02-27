@@ -199,7 +199,6 @@ class LpLoss(object):
 
 
 def FDM_Burgers(u, v, D=1):
-    import pdb; pdb.set_trace()
     batchsize = u.size(0)
     nt = u.size(1)
     nx = u.size(2)
