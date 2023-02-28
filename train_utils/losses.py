@@ -191,14 +191,15 @@ class LpLoss(object):
                 return torch.mean(diff_norms/y_norms)
             else:
                 return torch.sum(diff_norms/y_norms)
-
+            
         return diff_norms/y_norms
 
     def __call__(self, x, y):
-        return self.rel(x, y)
+        return self.abs(x, y)
 
 
 def FDM_Burgers(u, v, D=1):
+    # v = 0   # WTF....
     batchsize = u.size(0)
     nt = u.size(1)
     nx = u.size(2)

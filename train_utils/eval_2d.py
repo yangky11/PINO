@@ -79,9 +79,9 @@ def eval_burgers(model,
         out = model(x).reshape(y.shape)
 
         # Only evaluate on t \in [0.9, 1]
-        steps = out.size(1)
-        out = out[:, steps * 9 // 10 :]
-        y = y[:, steps * 9 // 10 : ]
+        #steps = out.size(1)
+        #out = out[:, steps * 9 // 10 :]
+        #y = y[:, steps * 9 // 10 : ]
 
         data_loss = myloss(out, y)
 
